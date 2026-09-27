@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or neural unit primitive, please cite it as below."
+authors:
+  - family-names: "Chhari"
+    given-names: "Ansh"
+    email: "contact@anshchhari.vercel.app"
+title: "Ternary Relational Neural Networks: Context-Gated Signed Evidence as a Hidden-Unit Primitive"
+version: 1.0.0
+date-released: 2026-08-19
+repository-code: "https://github.com/AnshChhari/ternary-relational-networks"
+url: "https://anshchhari.vercel.app"
+keywords:
+  - neural-architecture
+  - prototype-learning
+  - relational-neurons
+  - interpretability
+  - pytorch
