@@ -25,7 +25,7 @@ For a layer mapping input $x \in \mathbb{R}^d$ to hidden dimension $h$, each uni
    $$\tau = \text{softplus}(\log \tau) + 10^{-3}, \quad \gamma = \text{softplus}(\log \gamma) + 10^{-3}$$
 
 2. **Mean-Squared Feature Distances:**
-   $$d_P = \frac{1}{d} \|x - P\|_2^2, \quad d_N = \frac{1}{d} \|x - N\|_2^2, \quad d_U = \frac{1}{d} \|x - U\|_2^2$$
+   $$d_P = \frac{1}{d} \Vert{}x - P\Vert{}_2^2, \quad d_N = \frac{1}{d} \Vert{}x - N\Vert{}_2^2, \quad d_U = \frac{1}{d} \Vert{}x - U\Vert{}_2^2$$
 
 3. **Prototype Similarities:**
    $$s_P = \exp\left(-\frac{d_P}{\tau}\right), \quad s_N = \exp\left(-\frac{d_N}{\tau}\right), \quad s_U = \exp\left(-\frac{d_U}{\tau}\right)$$
@@ -42,7 +42,7 @@ For a layer mapping input $x \in \mathbb{R}^d$ to hidden dimension $h$, each uni
 
 ### 1. Tabular Digits Dataset (5 Random Seeds, 25 Epochs)
 
-Evaluated across 5 random seeds ($0, 1, 2, 3, 4$) on an 80/20 stratified split with AdamW optimizer ($\text{lr} = 0.002, \text{weight\_decay} = 10^{-4}$):
+Evaluated across 5 random seeds (0, 1, 2, 3, 4) on an 80/20 stratified split with AdamW optimizer (`lr = 0.002`, `weight_decay = 1e-4`):
 
 | Model | Parameters | Clean Accuracy | Noisy Accuracy ($\sigma = 0.20$) | Clean Log-Loss | Noisy Log-Loss |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -52,7 +52,7 @@ Evaluated across 5 random seeds ($0, 1, 2, 3, 4$) on an 80/20 stratified split w
 
 ### 2. High-Dimensional MNIST Benchmark (3 Random Seeds, GPU Acceleration)
 
-Evaluated on $28 \times 28$ flattened vision inputs ($d=784, h=256$):
+Evaluated on $28 \times 28$ flattened vision inputs ($d = 784, h = 256$):
 
 | Model | Parameters | Clean Accuracy (Mean) | Noisy Accuracy ($\sigma = 0.20$) |
 | :--- | :---: | :---: | :---: |
@@ -68,3 +68,30 @@ Evaluated on $28 \times 28$ flattened vision inputs ($d=784, h=256$):
 git clone [https://github.com/AnshChhari/ternary-relational-networks.git](https://github.com/AnshChhari/ternary-relational-networks.git)
 cd ternary-relational-networks
 pip install -r requirements.txt
+```
+
+### Reproducing Benchmarks
+
+Run the 5-seed Digits benchmark:
+```bash
+python benchmark_digits.py
+```
+
+Run the GPU-accelerated MNIST benchmark:
+```bash
+python benchmark_mnist.py
+```
+
+---
+
+## Citation
+
+```bibtex
+@article{chhari2026ternary,
+  title={Ternary Relational Neural Networks: Context-Gated Signed Evidence as a Hidden-Unit Primitive},
+  author={Chhari, Ansh},
+  journal={Exploratory Research Prototype},
+  year={2026},
+  url={[https://github.com/AnshChhari/ternary-relational-networks](https://github.com/AnshChhari/ternary-relational-networks)}
+}
+```
